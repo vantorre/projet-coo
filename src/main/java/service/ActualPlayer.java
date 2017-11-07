@@ -1,22 +1,18 @@
 package service;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by vantorre on 04/11/17.
  */
+@Getter
+@Setter
 public class ActualPlayer {
     private static ActualPlayer ACTUAL_PLAYER =new ActualPlayer();
     private ActualPlayer(){}
-    public ActualPlayer getInstance(){
+    public static ActualPlayer getInstance(){
         return ACTUAL_PLAYER;
     }
-
-
-
     private String login;
-    public String getActualPlayerLogin() {
-        return login;
-    }
-    public void setActualPlayerLogin(String login) {
-        this.login = login;
-    }
 }

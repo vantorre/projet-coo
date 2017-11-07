@@ -1,7 +1,7 @@
 package mapper.objetMetier;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.sun.istack.internal.NotNull;
+import lombok.*;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import java.util.List;
  */
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Player {
     String login;
     List<Game> games;

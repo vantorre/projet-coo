@@ -1,5 +1,6 @@
 package facade.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,9 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
 public class Response <T>{
     T dataResponse;
 
     StatutResponse statutResponse;
     String statutMessage;
+
+    public Response(T content,StatutResponse statutResponse){
+        this.dataResponse=content;
+        this.statutResponse=statutResponse;
+    }
 }
