@@ -1,8 +1,6 @@
 package facade.response;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import mapper.objetMetier.Coordonnees;
 import mapper.objetMetier.Game;
 import mapper.objetMetier.Territory;
@@ -16,6 +14,8 @@ import java.util.HashMap;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class GameResponseData {
     InfosGameResponseData infosPartyResponseData;
     HashMap<CoordonneesResponseData,TerritoryResponseData> territoires;

@@ -1,7 +1,9 @@
 package facade.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import mapper.objetMetier.Player;
 import mapper.objetMetier.Territory;
 
@@ -13,6 +15,8 @@ import java.util.Map;
  */
 @Getter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TerritoryContentResponseData {
     LoginResponseData cityOwner;
     HashMap<LoginResponseData,Integer> army;

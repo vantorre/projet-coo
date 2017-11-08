@@ -15,7 +15,7 @@ public class GenericMapper {
 
     public void initConnexion() throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");//TODO conf a externaliser
-        String sDbUrl = "jdbc:sqlite:/age-of-farmer.db";
+        String sDbUrl = "jdbc:sqlite:age-of-farmer.db";
         conn = DriverManager.getConnection(sDbUrl);
     }
 

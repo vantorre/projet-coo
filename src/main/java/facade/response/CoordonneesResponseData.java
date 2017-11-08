@@ -1,8 +1,6 @@
 package facade.response;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import mapper.objetMetier.Coordonnees;
 
 /**
@@ -11,6 +9,8 @@ import mapper.objetMetier.Coordonnees;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CoordonneesResponseData {
     int XAxis;
     int YAxis;

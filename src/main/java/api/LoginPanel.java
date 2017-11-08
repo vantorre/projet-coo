@@ -35,4 +35,5 @@ public class LoginPanel extends JPanel implements ActionListener{
             //TODO appel à l'API manager en passant en parametre le contenu du champ login
         }
     }
+
 }
