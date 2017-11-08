@@ -14,11 +14,28 @@ import java.awt.event.ActionListener;
 @Getter
 @Setter
 public class LoginPanel extends JPanel implements ActionListener{
+    ApiManager apiManager;
     JButton connection;
+    public static JTextArea inputLogin;
+    public static JTextArea outputLogin;
 
-    public LoginPanel(){
+    public LoginPanel(ApiManager apiManager){
+        this.apiManager=apiManager;
         this.setBackground(Color.GRAY);
-        //TODO ajout du champ text pour login
+        outputLogin = new JTextArea();
+        outputLogin.setText("LOGIN :");
+        outputLogin.setEditable(false);
+        outputLogin.setVisible(true);
+        this.add(outputLogin);
+        inputLogin = new JTextArea();
+        inputLogin.setBackground(Color.blue);
+        inputLogin.setSize(30,10);
+        Dimension dimentionMinimum= new Dimension();
+        dimentionMinimum.setSize(30,10);
+        inputLogin.setMinimumSize(dimentionMinimum);
+        inputLogin.setVisible(true);
+        this.add(inputLogin);
+
         connection=new JButton();
         connection.setSize(300,200);
         connection.setText("Connection !");//TODO externaliser les textes
@@ -30,9 +47,10 @@ public class LoginPanel extends JPanel implements ActionListener{
 
 
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==connection){
+        String content = inputLogin.getText();
+        if(e.getSource()==connection && !content.equals("")){
             System.out.println("click sur le bouton de connection");
-            //TODO appel à l'API manager en passant en parametre le contenu du champ login
+            apiManager.connectWith(content);
         }
     }
 

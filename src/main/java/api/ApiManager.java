@@ -21,7 +21,7 @@ public class ApiManager {
     private LoginPanel loginPanel;
 
     public ApiManager(){
-        loginPanel=new LoginPanel();
+        loginPanel=new LoginPanel(this);
     }
 
 
@@ -38,4 +38,7 @@ public class ApiManager {
         loginPanel.setVisible(true);
     }
 
+    public void connectWith(String login) {
+        facade.putConnexion(login);
+    }
 }

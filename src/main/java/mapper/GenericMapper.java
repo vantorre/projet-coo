@@ -34,6 +34,7 @@ public class GenericMapper {
     }
 
     public boolean isRegistred(String login) throws SQLException {
+            System.out.println("verif registred player");
             CallableStatement preparedStatement = conn.prepareCall("select login from player where login like :LOGIN");
             preparedStatement.setString(login,"LOGIN");
             ResultSet rs = preparedStatement.executeQuery();
