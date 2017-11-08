@@ -22,6 +22,7 @@ public class FacadeImpl implements Facade {
         try {
             return new Response<LoginResponseData>(new LoginResponseData(connexionService.switchActualPlayer(login)), StatutResponse.OK);
         } catch (SQLException e) {
+            e.printStackTrace();
             return new Response<LoginResponseData>(null,StatutResponse.Failed,"exception sql : "+e.getMessage());
         }
     }

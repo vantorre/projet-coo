@@ -16,8 +16,10 @@ public class ConnexionServiceImpl implements  ConnexionService{
 
     public Player switchActualPlayer(String login) throws SQLException {
         if(!genericMapper.isRegistred(login)){
+            System.out.println("unregistred player");
             genericMapper.inscribe(login);
         }
+        System.out.println("connection with "+login);
         actualPlayer.setLogin(login);
         return genericMapper.getPlayer(actualPlayer.getLogin());
     }
