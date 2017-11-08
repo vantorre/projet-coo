@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 @Getter
 @Setter
 public class LoginPanel extends JPanel implements ActionListener{
-    ApiManager apiManager;
+    private ApiManager apiManager;
     JButton connection;
     public static JTextArea inputLogin;
     public static JTextArea outputLogin;

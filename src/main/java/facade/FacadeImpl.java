@@ -27,7 +27,7 @@ public class FacadeImpl implements Facade {
         }
     }
 
-    public Response getConnectedLogin() {
+    public Response<LoginResponseData> getConnectedLogin() {
         try{
             return new Response<LoginResponseData>(new LoginResponseData(connexionService.getConnectedPlayer()), StatutResponse.OK);
         } catch (SQLException e) {

@@ -28,7 +28,7 @@ public class GenericMapper {
             preparedStatement.setString(1,login);
             ResultSet rs = preparedStatement.executeQuery();//TODO externaliser les requettes
             if(!rs.next()){
-                return null;
+                return Player.builder().build();
             }
             return Player.builder().login(rs.getString(1)).build();
     }

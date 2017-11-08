@@ -3,11 +3,9 @@ package api;
 
 import exception.UninitialisedInjectionException;
 import facade.Facade;
-import facade.response.Response;
+import facade.response.LoginResponseData;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.swing.*;
 
 /**
  * Created by vantorre on 04/11/17.
@@ -19,9 +17,11 @@ public class ApiManager {
     private Facade facade;
 
     private LoginPanel loginPanel;
+    private MenuPanel menuPanel;
 
     public ApiManager(){
         loginPanel=new LoginPanel(this);
+        menuPanel=new MenuPanel(this);
     }
 
 
@@ -40,5 +40,12 @@ public class ApiManager {
 
     public void connectWith(String login) {
         facade.putConnexion(login);
+        mainWindow.setContentPane(menuPanel);
+        menuPanel.actualise();
+        menuPanel.setVisible(true);
+    }
+
+    public LoginResponseData getConnectedPlayer() {
+        return facade.getConnectedLogin().getDataResponse();
     }
 }

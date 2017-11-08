@@ -1,5 +1,6 @@
 package facade;
 
+import facade.response.LoginResponseData;
 import facade.response.Response;
 import service.ConnexionService;
 
@@ -11,6 +12,6 @@ public interface Facade {
 
     Response putConnexion(String login);
 
-    Response getConnectedLogin();
+    Response<LoginResponseData> getConnectedLogin();
 
 }
