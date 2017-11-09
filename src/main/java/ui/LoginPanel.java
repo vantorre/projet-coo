@@ -1,4 +1,4 @@
-package api;
+package ui;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,26 +14,34 @@ import java.awt.event.ActionListener;
 @Getter
 @Setter
 public class LoginPanel extends JPanel implements ActionListener{
-    private ApiManager apiManager;
+    private UiManager uiManager;
     JButton connection;
-    public static JTextArea inputLogin;
-    public static JTextArea outputLogin;
+    public static JTextField inputLogin;
+    public static JTextField outputLogin;
 
-    public LoginPanel(ApiManager apiManager){
-        this.apiManager=apiManager;
-        this.setBackground(Color.GRAY);
-        outputLogin = new JTextArea();
+    public LoginPanel(UiManager uiManager){
+        this.uiManager = uiManager;
+        loginLayout();
+    }
+
+    private void loginLayout() {
+        setLayout(new GridLayout(3,0));
+
+        setBackground(Color.GRAY);
+
+        outputLogin = new JTextField();
         outputLogin.setText("LOGIN :");
         outputLogin.setEditable(false);
         outputLogin.setVisible(true);
+        outputLogin.setHorizontalAlignment(JTextField.CENTER);
         this.add(outputLogin);
-        inputLogin = new JTextArea();
+
+        inputLogin = new JTextField();
         inputLogin.setBackground(Color.blue);
-        inputLogin.setSize(30,10);
-        Dimension dimentionMinimum= new Dimension();
-        dimentionMinimum.setSize(30,10);
-        inputLogin.setMinimumSize(dimentionMinimum);
         inputLogin.setVisible(true);
+        inputLogin.setFont(new Font(" ", Font.BOLD, 30));
+        inputLogin.setAlignmentX(JTextField.CENTER_ALIGNMENT);
+        inputLogin.setHorizontalAlignment(JTextField.CENTER);
         this.add(inputLogin);
 
         connection=new JButton();
@@ -42,7 +50,6 @@ public class LoginPanel extends JPanel implements ActionListener{
         connection.addActionListener(this);
         this.add(connection);
         connection.setVisible(true);
-
     }
 
 
@@ -50,7 +57,7 @@ public class LoginPanel extends JPanel implements ActionListener{
         String content = inputLogin.getText();
         if(e.getSource()==connection && !content.equals("")){
             System.out.println("click sur le bouton de connection");
-            apiManager.connectWith(content);
+            uiManager.connectWith(content);
         }
     }
 

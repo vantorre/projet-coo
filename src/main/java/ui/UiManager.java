@@ -1,4 +1,4 @@
-package api;
+package ui;
 
 
 import exception.UninitialisedInjectionException;
@@ -12,14 +12,14 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ApiManager {
+public class UiManager {
     private Window mainWindow;
     private Facade facade;
 
     private LoginPanel loginPanel;
     private MenuPanel menuPanel;
 
-    public ApiManager(){
+    public UiManager(){
         loginPanel=new LoginPanel(this);
         menuPanel=new MenuPanel(this);
     }
@@ -28,7 +28,7 @@ public class ApiManager {
     public void run() throws UninitialisedInjectionException {
         if(mainWindow==null || facade== null) throw new UninitialisedInjectionException();
         mainWindow.setFacade(facade);
-        mainWindow.setApiManager(this);
+        mainWindow.setUiManager(this);
         mainWindow.setVisible(true);
         this.showLoginPage();
     }

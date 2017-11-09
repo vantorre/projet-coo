@@ -1,4 +1,4 @@
-package api;
+package ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,11 +10,11 @@ import java.awt.event.ActionListener;
  */
 public class MenuPanel extends JPanel implements ActionListener {
 
-    private ApiManager apiManager;
+    private UiManager uiManager;
     JTextArea outputLogin = new JTextArea();
 
-    public MenuPanel(ApiManager apiManager){
-        this.apiManager=apiManager;
+    public MenuPanel(UiManager uiManager){
+        this.uiManager = uiManager;
         this.setBackground(Color.green);
 
         outputLogin.setEditable(false);
@@ -24,7 +24,7 @@ public class MenuPanel extends JPanel implements ActionListener {
     }
 
     public void actualise(){
-        outputLogin.setText(apiManager.getConnectedPlayer().getLogin());
+        outputLogin.setText(uiManager.getConnectedPlayer().getLogin());
     }
 
     public void actionPerformed(ActionEvent e) {

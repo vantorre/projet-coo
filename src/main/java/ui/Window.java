@@ -1,4 +1,4 @@
-package api;
+package ui;
 
 import facade.Facade;
 import facade.response.Response;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by vantorre on 04/11/17.
@@ -16,7 +15,7 @@ import java.awt.*;
 public class Window extends JFrame{
     private String connectedPlayer;
     private Facade facade;
-    ApiManager apiManager;
+    UiManager uiManager;
 
     public Window() {
         this.setTitle("Age of Farmer");
@@ -25,8 +24,8 @@ public class Window extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(false);
     }
-    private void printFailedResponseMessage(Response response){
-        JOptionPane.showMessageDialog(this, response.getStatutMessage());
+    public void printFailedResponseMessage(Response response){
+        JOptionPane.showMessageDialog(this, response.getStatutMessage(),"Error !",JOptionPane.ERROR_MESSAGE);
     }
 
 

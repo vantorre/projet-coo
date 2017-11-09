@@ -1,5 +1,5 @@
-import api.ApiManager;
-import api.Window;
+import ui.UiManager;
+import ui.Window;
 import exception.UninitialisedInjectionException;
 import facade.Facade;
 import facade.FacadeImpl;
@@ -27,12 +27,12 @@ public class Main {
 
         //initialisation API et injection facade
         Window window = new Window();
-        ApiManager apiManager = new ApiManager();
-        apiManager.setMainWindow(window);
-        apiManager.setFacade(facade);
+        UiManager uiManager = new UiManager();
+        uiManager.setMainWindow(window);
+        uiManager.setFacade(facade);
 
         //relais ApiManager
-        apiManager.run();
+        uiManager.run();
 
     }
 }
