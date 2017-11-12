@@ -1,7 +1,8 @@
-package ui;
+package ui.panel;
 
 import lombok.Getter;
 import lombok.Setter;
+import ui.UiManager;
 
 import javax.swing.*;
 import java.awt.*;

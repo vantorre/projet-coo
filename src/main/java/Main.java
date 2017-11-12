@@ -27,9 +27,8 @@ public class Main {
 
         //initialisation API et injection facade
         Window window = new Window();
-        UiManager uiManager = new UiManager();
+        UiManager uiManager = new UiManager(facade);
         uiManager.setMainWindow(window);
-        uiManager.setFacade(facade);
 
         //relais ApiManager
         uiManager.run();

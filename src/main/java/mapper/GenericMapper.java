@@ -1,10 +1,8 @@
 package mapper;
 
-import configuration.ConfigurationProperties;
+import configuration.Configuration;
 import mapper.objetMetier.Player;
-import sun.rmi.runtime.Log;
 
-import javax.security.auth.login.Configuration;
 import java.sql.*;
 import java.lang.Class;
 
@@ -17,7 +15,7 @@ public class GenericMapper {
 
     public void initConnexion() throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");//TODO conf a externaliser
-        String sDbUrl = ConfigurationProperties.getInstance().getProperty("db.url");
+        String sDbUrl = Configuration.getDatabaseConf().getProperty("db.url");
         conn = DriverManager.getConnection(sDbUrl);
     }
 
