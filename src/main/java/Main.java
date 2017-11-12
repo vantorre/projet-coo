@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws UninitialisedInjectionException, SQLException, ClassNotFoundException {
         //initialisation mapper
-        PlayerMapper playerMapper = new PlayerMapper();//TODO externaliser le choix d'implementation
+        PlayerMapper playerMapper = PlayerMapper.getInstance();//TODO externaliser le choix d'implementation
 
         //initialisation services et injection du mapper
         ConnexionService connexionService = new ConnexionServiceImpl();

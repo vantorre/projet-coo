@@ -24,7 +24,7 @@ public class UnitOfWork implements Observateur{
             objetsMetiersModifiers.add(iObjetMetier);
         }
     }
-    public void commit(){
+    public void commit(){//TODO declancher le commit periodiquement / quand on quitte / a la modification
         Visiteur visiteur = new Commiter();
         for(IObjetMetier objetMetier : objetsMetiersModifiers){
             visiteur.visiter(objetMetier);
