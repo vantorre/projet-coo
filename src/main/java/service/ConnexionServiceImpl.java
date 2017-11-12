@@ -1,7 +1,7 @@
 package service;
 
 import lombok.Setter;
-import mapper.GenericMapper;
+import mapper.mapper.PlayerMapper;
 import mapper.objetMetier.Player;
 
 import java.sql.SQLException;
@@ -11,20 +11,20 @@ import java.sql.SQLException;
  */
 @Setter
 public class ConnexionServiceImpl implements  ConnexionService{
-    private GenericMapper genericMapper;
+    private PlayerMapper playerMapper;
     ActualPlayer actualPlayer = ActualPlayer.getInstance();
 
     public Player switchActualPlayer(String login) throws SQLException {
-        if(!genericMapper.isRegistred(login)){
+        if(!playerMapper.isRegistred(login)){
             System.out.println("unregistred player");
-            genericMapper.inscribe(login);
+            playerMapper.inscribe(login);
         }
         System.out.println("connection with "+login);
         actualPlayer.setLogin(login);
-        return genericMapper.getPlayer(actualPlayer.getLogin());
+        return playerMapper.findById(actualPlayer.getLogin());
     }
 
     public Player getConnectedPlayer() throws SQLException {
-        return genericMapper.getPlayer(actualPlayer.getLogin());
+        return playerMapper.findById(actualPlayer.getLogin());
     }
 }

@@ -1,29 +1,21 @@
-package mapper;
+package mapper.mapper;
 
-import configuration.Configuration;
 import mapper.objetMetier.Player;
 
 import java.sql.*;
-import java.lang.Class;
 
 /**
  * Created by vantorre on 04/11/17.
  */
-public class GenericMapper {
+public class PlayerMapper {
 
     Connection conn ;
 
-    public void initConnexion() throws ClassNotFoundException, SQLException {
-        Class.forName("org.sqlite.JDBC");//TODO conf a externaliser
-        String sDbUrl = Configuration.getDatabaseConf().getProperty("db.url");
-        conn = DriverManager.getConnection(sDbUrl);
+    public PlayerMapper() throws SQLException, ClassNotFoundException {
+        conn = DatabaseConnexionHandler.getConnexion();
     }
 
-    public GenericMapper() throws SQLException, ClassNotFoundException {
-        initConnexion();
-    }
-
-    public Player getPlayer(String login) throws SQLException {
+    public Player findById(String login) throws SQLException {
             PreparedStatement preparedStatement = conn.prepareStatement("select login from players where login like ?");
             preparedStatement.setString(1,login);
             ResultSet rs = preparedStatement.executeQuery();//TODO externaliser les requettes

@@ -1,6 +1,6 @@
 package service;
 
-import mapper.GenericMapper;
+import mapper.mapper.PlayerMapper;
 import mapper.objetMetier.Player;
 
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * Created by vantorre on 05/11/17.
  */
 public interface ConnexionService {
-    void setGenericMapper(GenericMapper genericMapper);
+    void setPlayerMapper(PlayerMapper playerMapper);
 
     Player switchActualPlayer(String login) throws SQLException;
 
