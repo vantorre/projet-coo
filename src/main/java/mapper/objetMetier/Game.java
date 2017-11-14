@@ -1,7 +1,6 @@
 package mapper.objetMetier;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -11,6 +10,9 @@ import java.util.HashMap;
  */
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Game {
     int idGame;
     String name;
@@ -22,6 +24,7 @@ public class Game {
     double roundDuration;
     int maxPlayers;
     int ressourcesAllowedByRound;
+    int ressourcesInitiales;
 
 
     HashMap<Player,PlayerGameStatut> playersGameStatus;

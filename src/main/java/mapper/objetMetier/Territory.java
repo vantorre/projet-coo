@@ -1,5 +1,6 @@
 package mapper.objetMetier;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,9 +11,12 @@ import java.util.Map;
  */
 @Getter
 @Setter
+@AllArgsConstructor
 public class Territory {
     TypeTerritory type;
     Player cityOwner;
-
     Map<Player,Integer> army;
+    public Territory(TypeTerritory type){
+        this.type=type;
+    }
 }

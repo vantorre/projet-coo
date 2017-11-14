@@ -6,6 +6,7 @@ import facade.response.StatutResponse;
 import lombok.Getter;
 import lombok.Setter;
 import service.ConnexionService;
+import service.GameService;
 
 import java.sql.SQLException;
 
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 @Setter
 public class FacadeImpl implements Facade {
     ConnexionService connexionService;
+    GameService gameService;
 
 
     public Response putConnexion(String login) {
@@ -32,6 +34,16 @@ public class FacadeImpl implements Facade {
             return new Response<LoginResponseData>(new LoginResponseData(connexionService.getConnectedPlayer()), StatutResponse.OK);
         } catch (SQLException e) {
             return new Response<LoginResponseData>(null,StatutResponse.Failed,"exception sql : "+e.getMessage());
+        }
+    }
+
+    public Response createGame(String nom, int dureeTour, int nbMaxPlayers, int tailleCarte, int distMinVille, int qtResTour, int qtInitRes) {
+        try {
+            gameService.createGame( nom,  dureeTour,  nbMaxPlayers,  tailleCarte,  distMinVille,  qtResTour,  qtInitRes);
+            return new Response( StatutResponse.OK);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new Response(null,StatutResponse.Failed,"exception sql : "+e.getMessage());
         }
     }
 }

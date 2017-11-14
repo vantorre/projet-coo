@@ -22,4 +22,8 @@ public class Response <T>{
         this.dataResponse=content;
         this.statutResponse=statutResponse;
     }
+
+    public Response(StatutResponse statutResponse) {
+        this.statutResponse=statutResponse;
+    }
 }

@@ -50,12 +50,25 @@ public class UiManager {
     public void connectWith(String login) {
         Response response = facade.putConnexion(login);
         if(response.getStatutResponse().equals(StatutResponse.OK)) {
-            mainWindow.setContentPane(menuPanel);
-            menuPanel.actualise();
-            menuPanel.setVisible(true);
+            showMenuPage();
         }else{
             mainWindow.printFailedResponseMessage(response);
         }
+    }
+    public void createGame(String nom, int dureeTour, int nbMaxPlayers, int tailleCarte, int distMinVille, int qtResTour, int qtInitRes) {
+        Response response = facade.createGame(nom,  dureeTour,  nbMaxPlayers,  tailleCarte,  distMinVille,  qtResTour,  qtInitRes);
+        if(response.getStatutResponse().equals(StatutResponse.OK)) {
+            showMenuPage();
+            //TODO afficher message comme quoi la partie a ete créee
+        }else {
+            mainWindow.printFailedResponseMessage(response);
+        }
+    }
+
+    public void showMenuPage(){
+        mainWindow.setContentPane(menuPanel);
+        menuPanel.actualise();
+        menuPanel.setVisible(true);
     }
 
     public void showCreationGamePage() {
@@ -85,4 +98,6 @@ public class UiManager {
     public LoginResponseData getConnectedPlayer() {
         return facade.getConnectedLogin().getDataResponse();
     }
+
+
 }

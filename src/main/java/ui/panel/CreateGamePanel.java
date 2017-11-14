@@ -118,7 +118,9 @@ public class CreateGamePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getSource()==boutonCreer && verifierChamps()){
             System.out.println("créer");
-            //TODO declancher acction avec tous les fields en parametre
+            uiManager.createGame(inputNom.getText(),Integer.parseInt(inputDureeTour.getText()),Integer.parseInt(inputNbMaxPlayers.getText()),
+                    Integer.parseInt(inputTailleCarte.getText()),Integer.parseInt(inputDistanceMinVilles.getText()),
+                    Integer.parseInt(inputQteRessourcesTour.getText()),Integer.parseInt(inputQteInitialeResources.getText()));
         }
     }
 
