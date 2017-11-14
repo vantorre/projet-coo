@@ -1,7 +1,7 @@
 CREATE TABLE players (login VARCHAR(30) primary key);
 
 CREATE TABLE game(
-id int primary key,
+id int AUTO_INCREMENT primary key,
 name VARCHAR(3) NOT NULL,
 state VARCHAR(3) NOT NULL,
 owner VARCHAR(30) NOT NULL,
@@ -10,7 +10,8 @@ roundNumber int,
 roundDuration NUMBER(30),
 startDateFirstRound DATE,
 maxPlayers int,
-ressourcesAllowedByRound,
+ressourcesAllowedByRound int,
+ressourcesAllowedInit int,
 
 FOREIGN KEY (owner) REFERENCES game(login),
 FOREIGN KEY (winner) REFERENCES game(login)

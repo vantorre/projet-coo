@@ -56,5 +56,6 @@ public class PlayerMapper {
         PreparedStatement preparedStatement = conn.prepareStatement("insert into players(login) values (?);");
         preparedStatement.setString(1,login);
         preparedStatement.execute();
+        conn.commit();
     }
 }

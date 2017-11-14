@@ -34,5 +34,6 @@ public class DatabaseConnexionHandler {
         Class.forName(databaseConfiguration.getProperty("db.driver"));
         String sDbUrl = databaseConfiguration.getProperty("db.url");
         conn = DriverManager.getConnection(sDbUrl);
+        conn.setAutoCommit(false);
     }
 }
