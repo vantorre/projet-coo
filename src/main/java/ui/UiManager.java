@@ -8,10 +8,7 @@ import facade.response.Response;
 import facade.response.StatutResponse;
 import lombok.Getter;
 import lombok.Setter;
-import ui.panel.JoinGamePanel;
-import ui.panel.LoginPanel;
-import ui.panel.MenuPanel;
-import ui.panel.YoursGamesPanel;
+import ui.panel.*;
 
 /**
  * Created by vantorre on 04/11/17.
@@ -26,6 +23,7 @@ public class UiManager {
     private MenuPanel menuPanel;
     private JoinGamePanel joinGamePanel;
     private YoursGamesPanel yoursGamesPanel;
+    private CreateGamePanel createGamePanel;
 
     public UiManager(Facade facade){
         this.mainWindow = new Window();
@@ -33,6 +31,7 @@ public class UiManager {
         this.menuPanel=new MenuPanel(this);
         this.joinGamePanel= new JoinGamePanel(this);
         this.yoursGamesPanel= new YoursGamesPanel(this);
+        this.createGamePanel=new CreateGamePanel(this);
         this.facade = facade;
     }
 
@@ -60,7 +59,10 @@ public class UiManager {
     }
 
     public void showCreationGamePage() {
-        System.out.println("changement page creation");//TODO
+        System.out.println("changement page creation");
+        mainWindow.setContentPane(createGamePanel);
+        createGamePanel.actualise();
+        createGamePanel.setVisible(true);
     }
 
 
